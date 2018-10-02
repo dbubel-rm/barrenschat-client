@@ -6,7 +6,6 @@ import store from "./store";
 import { getPublicFirebaseKeys } from "./modules/firebase";
 Vue.use(Router);
 export default new Router({
-
   routes: [
     {
       path: "/",
@@ -26,7 +25,7 @@ export default new Router({
       path: "/chat",
       name: "chat",
       component: Chat,
-       beforeEnter(to, from, next) {
+      beforeEnter(to, from, next) {
         if (store.getters.hasValidAuth) {
           next();
         } else {
@@ -35,6 +34,4 @@ export default new Router({
       }
     }
   ]
-})
-
-
+});

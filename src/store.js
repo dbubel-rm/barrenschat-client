@@ -12,19 +12,13 @@ export default new Vuex.Store({
   mutations: {
     async setFirebasePublicKeys(state, keys) {
       state.firebasePublicKeys = keys;
-      console.log("Keys set");
     },
     setUserAuthToken(state, token) {
-      // console.log("commit auth token:", token)
       state.userToken = token;
     }
   },
   actions: {
-    // setFirebasePublicKeys({ commit }, firebasePublicKeys) {
-    //   commit("setFirebasePublicKeys", firebasePublicKeys);
-    // },
     setUserAuthToken({ commit }, token) {
-      // console.log("setUserAuthToken:", token)
       commit("setUserAuthToken", token);
     }
   },
@@ -36,6 +30,7 @@ export default new Vuex.Store({
       return state.userToken;
     },
     hasValidAuth: state => {
+      // console.log("KEYS", state.firebasePublicKeys)
       for (var key in state.firebasePublicKeys) {
         try {
           jsonwebtoken.verify(state.userToken, state.firebasePublicKeys[key], {
@@ -46,9 +41,10 @@ export default new Vuex.Store({
             clockTolerance: 2
           });
           localStorage.setItem("jwt", state.userToken);
+          // console.log("Token OK");
           return state.userToken;
         } catch (e) {
-          console.error(e);
+          console.log(state.firebasePublicKeys[key]);
         }
       }
     }
