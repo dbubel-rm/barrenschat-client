@@ -10,13 +10,13 @@
               </v-toolbar> 
               <v-card-text>
                 <v-form>
-                  <v-text-field v-model="email" prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
-                  <v-text-field v-model="password" id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+                  <v-text-field v-model="email" prepend-icon="person" name="login"  type="text"></v-text-field>
+                  <v-text-field v-model="password" id="password" prepend-icon="lock" name="password"  type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn v-on:click="test">Login</v-btn>
+                <v-btn v-on:click="attemptLogin">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -28,7 +28,7 @@
 <script>
 import { getUserJWT } from "@/modules/firebase";
 export default {
-  name: "Login",
+  name: "LoginForm",
   data() {
     return {
       email: "",
@@ -36,7 +36,7 @@ export default {
     };
   },
   methods: {
-    async test() {
+    async attemptLogin() {
       const token = await getUserJWT(this.email, this.password);
       this.$store.commit("setUserAuthToken", token.idToken);
 

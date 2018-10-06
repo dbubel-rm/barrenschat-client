@@ -1,73 +1,112 @@
 <template>
-  <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      clipped
-      fixed
-      app
-    >
-      <v-list dense>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>dashboard</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Channels</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Settings</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
+  <div>
+    <v-navigation-drawer v-model="drawer" clipped fixed app>
+      <SideNav />
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>BChat</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <v-flex shrink>
-            <v-tooltip right>
-              <!-- <v-btn
-                slot="activator"
-                :href="source"
-                icon
-                large
-                target="_blank"
-              >
-                <v-icon large>code</v-icon>
-              </v-btn> -->
-              <span>Source</span>
-            </v-tooltip>
-            <v-tooltip right>
-              <v-btn slot="activator" icon large href="https://codepen.io/johnjleider/pen/qxQWda" target="_blank">
-                <v-icon large>mdi-codepen</v-icon>
-              </v-btn>
-              <span>Codepen</span>
-            </v-tooltip>
+      <v-container>
+        <v-layout align-center justify-center column fill-height>
+          <v-flex>
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+          </v-flex>
+        </v-layout>
+
+      </v-container>
+
+      <v-container>
+        <v-layout>
+          <v-flex>
+            <Message />
+    
           </v-flex>
         </v-layout>
       </v-container>
     </v-content>
-    <v-footer app fixed>
-      <span>&copy; engineerbeard.com</span>
-    </v-footer>
-  </v-app>
+    <!-- <v-content >
+         <v-flex>
+          <v-text-field label="Solo" solo ></v-text-field>
+        </v-flex>
+    </v-content> -->
+    <!-- <v-content>
+       <v-container fluid fill-height>
+        <v-layout align-start justify-start column overflow-hidden>
+          <Message />
+        </v-layout>
+      </v-container> 
+    </v-content> -->
+    <!-- <v-footer app fixed>
+      <span>&copy; Engineerbeard</span>
+    </v-footer> -->
+  </div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    drawer: true
-  }),
-  props: {
-    source: String
-  }
-};
+  import SideNav from "@/components/SideNav.vue";
+  import Message from "@/components/Message.vue";
+  export default {
+    components: {
+      SideNav,
+      Message
+    },
+    data: () => ({
+      drawer: true,
+      bottomNav: 3
+    }),
+    props: {
+      source: String
+    },
+    computed: {
+      color() {
+        switch (this.bottomNav) {
+          case 0:
+            return "blue-grey";
+          case 1:
+            return "teal";
+          case 2:
+            return "brown";
+          case 3:
+            return "indigo";
+        }
+      }
+    }
+  };
 </script>
+<style scoped>
+  /* .scrollable {
+    overflow-y: auto;
+    height: 50vh;
+  } */
+</style>
