@@ -8,52 +8,22 @@
       <v-toolbar-title>BChat</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container>
-        <v-layout align-center justify-center column fill-height>
+      <v-container class="scrollable">
+        <v-layout >
           <v-flex>
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
             <Message />
             <Message />
           </v-flex>
         </v-layout>
+      </v-container >
+<v-layout>
 
-      </v-container>
-
-      <v-container>
-        <v-layout>
-          <v-flex>
-            <Message />
-    
-          </v-flex>
-        </v-layout>
-      </v-container>
+          <v-text-field
+            label="Solo"
+            solo
+            
+          ></v-text-field>
+</v-layout>
     </v-content>
     <!-- <v-content >
          <v-flex>
@@ -74,39 +44,39 @@
 </template>
 
 <script>
-  import SideNav from "@/components/SideNav.vue";
-  import Message from "@/components/Message.vue";
-  export default {
-    components: {
-      SideNav,
-      Message
-    },
-    data: () => ({
-      drawer: true,
-      bottomNav: 3
-    }),
-    props: {
-      source: String
-    },
-    computed: {
-      color() {
-        switch (this.bottomNav) {
-          case 0:
-            return "blue-grey";
-          case 1:
-            return "teal";
-          case 2:
-            return "brown";
-          case 3:
-            return "indigo";
-        }
+import SideNav from "@/components/SideNav.vue";
+import Message from "@/components/Message.vue";
+export default {
+  components: {
+    SideNav,
+    Message
+  },
+  data: () => ({
+    drawer: true,
+    bottomNav: 3
+  }),
+  props: {
+    source: String
+  },
+  computed: {
+    color() {
+      switch (this.bottomNav) {
+        case 0:
+          return "blue-grey";
+        case 1:
+          return "teal";
+        case 2:
+          return "brown";
+        case 3:
+          return "indigo";
       }
     }
-  };
+  }
+};
 </script>
 <style scoped>
-  /* .scrollable {
-    overflow-y: auto;
-    height: 50vh;
-  } */
+.scrollable {
+  overflow-y: auto;
+  height: 83vh;
+}
 </style>
