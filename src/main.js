@@ -5,7 +5,7 @@ import store from "./store";
 import Vuetify from "vuetify";
 
 Vue.use(Vuetify);
-
+console.log(window.location.hostname);
 Vue.config.productionTip = false;
 
 new Vue({

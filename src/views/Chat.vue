@@ -46,6 +46,7 @@
 <script>
 import SideNav from "@/components/SideNav.vue";
 import Message from "@/components/Message.vue";
+import Ws from "@/modules/bchat";
 export default {
   components: {
     SideNav,
