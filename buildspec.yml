@@ -9,8 +9,8 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync public/ s3://engineerbeard.com/ --region us-east-1 --delete --acl public-read
+      - aws s3 sync dist/ s3://engineerbeard.com/ --region us-east-1 --delete --acl public-read
       - echo Build completed on `date`
-artifacts:
-  files:
-    - dist/**/*
+# artifacts:
+#   files:
+#     - dist/**/*
