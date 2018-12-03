@@ -6,7 +6,7 @@ phases:
       - npm install
   build:
     commands:
-      - docker run redis
+      - docker ps -a
       - npm run build
   post_build:
     commands:
