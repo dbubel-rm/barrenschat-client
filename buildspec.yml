@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      # - npm install unit.js
+      - npm install
   build:
     commands:
       - echo Build started on `date`
@@ -19,4 +19,4 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - dist
+    - dist/
